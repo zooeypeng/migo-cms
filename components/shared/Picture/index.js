@@ -1,8 +1,10 @@
-const Picture = ({ src, pngSrc, ...props }) => (
+import Image from 'next/image'
+
+const Picture = ({ src, pngSrc, w, h, ...props }) => (
   <picture>
     <source srcSet={src} type="image/webp" />
     <source srcSet={pngSrc} type="image/png" />
-    <img src={src || pngSrc } {...props} />
+    <Image src={src || pngSrc } {...props} width={w} height={h} />
   </picture>
 )
 

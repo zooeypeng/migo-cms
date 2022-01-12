@@ -7,7 +7,9 @@ const Logo = () => (
         src="/shared/Logo.webp"
         pngSrc="/shared/Logo.png"
         alt="Logo"
-        className="w-9 mx-1"
+        className="flex-0 mx-1"
+        w={36}
+        h={36}
       />
 
       <p className="uppercase w-[128px] text-white font-bold leading-none mx-3">
