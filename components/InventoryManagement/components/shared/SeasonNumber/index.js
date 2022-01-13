@@ -1,9 +1,9 @@
 import Td from '/components/InventoryManagement/components/shared/Td'
 
-const Season = ({ data }) => (
+const SeasonNumber = ({ data }) => (
   <Td>
-    { data.length || '--' }
+    { data }
   </Td>
 )
 
-export default Season
+export default SeasonNumber
