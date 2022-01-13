@@ -1,20 +1,29 @@
-const Body = () => (
+import { CONTENT_TYPE } from '/constants/inventory_management'
+import TitleId from './components/TitleId'
+import TitleName from './components/TitleName'
+import ContentType from './components/ContentType'
+import Season from './components/Season'
+import Episode from './components/Episode'
+import PublishedDate from './components/PublishedDate'
+import Programmable from './components/Programmable'
+
+const Body = ({ data }) => (
   <tbody className="text-gray-8 text-sm">
-    <tr>
-      <td className="border-b border-gray-3">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-      <td className="border-b border-gray-3">Malcolm Lockyer</td>
-      <td className="border-b border-gray-3">1961</td>
-    </tr>
-    <tr>
-      <td className="border-b border-gray-3">Witchy Woman</td>
-      <td className="border-b border-gray-3">The Eagles</td>
-      <td className="border-b border-gray-3">1972</td>
-    </tr>
-    <tr>
-      <td className="border-b border-gray-3">Shining Star</td>
-      <td className="border-b border-gray-3">Earth, Wind, and Fire</td>
-      <td className="border-b border-gray-3">1975</td>
-    </tr>
+    {data?.map((item, key) => {
+      const isTypeMovie = item.content_type === CONTENT_TYPE.MOVIE
+
+      return (
+        <tr key={key}>
+          <TitleId data={ item.title_iid } />
+          <TitleName data={ item.title_name } />
+          <ContentType data={ item.content_type } />
+          <Season data={ item.seasons } />
+          <Episode data={{ isTypeMovie, count: item.episode_count }} />
+          <PublishedDate data={ item.publish_timestamp } />
+          <Programmable data={{ isTypeMovie }} />
+        </tr>
+      )
+    })}
   </tbody>
 )
 
