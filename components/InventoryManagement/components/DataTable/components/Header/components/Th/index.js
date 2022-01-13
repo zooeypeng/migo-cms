@@ -1,7 +1,7 @@
 const Th = ({ children }) => (
-  <td className="py-2 text-sm text-gray-8 font-bold">
+  <th className="rounded-1 py-2 text-sm text-gray-8 font-bold">
     { children }
-  </td>
+  </th>
 )
 
 export default Th
