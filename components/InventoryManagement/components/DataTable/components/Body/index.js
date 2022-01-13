@@ -10,7 +10,7 @@ import Programmable from './components/Programmable'
 const Body = ({ data }) => (
   <tbody className="text-gray-8 text-sm">
     {data?.map((item, key) => {
-      const isTypeMovie = item.content_type === CONTENT_TYPE.MOVIE
+      const isTypeMovie = item?.content_type === CONTENT_TYPE.MOVIE
 
       return (
         <tr key={key}>
@@ -19,7 +19,7 @@ const Body = ({ data }) => (
           <ContentType data={ item.content_type } />
           <Season data={ item.seasons } />
           <Episode data={{ isTypeMovie, count: item.episode_count }} />
-          <PublishedDate data={ item.publish_timestamp } />
+          <PublishedDate data={{ isTypeMovie, time: item.publish_timestamp }} />
           <Programmable data={{ isTypeMovie }} />
         </tr>
       )

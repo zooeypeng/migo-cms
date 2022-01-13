@@ -1,13 +1,15 @@
+import Th from './components/Th'
+
 const Header = () => (
-  <thead className="text-gray-8 bg-gray-2 border-y border-gray-1 text-sm">
+  <thead className="bg-gray-2 border-y border-gray-1">
     <tr>
-      <th>ID</th>
-      <th>Title Name</th>
-      <th>Type</th>
-      <th>Season</th>
-      <th>Episode</th>
-      <th>Published</th>
-      <th>Programmable</th>
+      <Th>ID</Th>
+      <Th>Title Name</Th>
+      <Th>Type</Th>
+      <Th>Season</Th>
+      <Th>Episode</Th>
+      <Th>Published</Th>
+      <Th>Programmable</Th>
     </tr>
   </thead>
 )
