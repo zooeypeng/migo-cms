@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react'
 import { CONTENT_TYPE } from '/constants/inventory_management'
 import SeriesHandler from './components/SeriesHandler'
 import TitleId from './components/TitleId'
@@ -11,10 +11,11 @@ import Programmable from '../../../shared/Programmable'
 import SeasonDetail from './components/SeasonDetail'
 
 const Body = ({ data }) => {
+  const [ isShownChildren, setIsShownChildren ] = useState(false)
 
-  const handleClick = (key) => {
-    console.log('click', key)
-  }
+  const onToggleChildren = useCallback((key) => {
+    setIsShownChildren(prevState => !prevState)
+  }, [])
 
   return (
     <tbody className="text-gray-8 text-sm">
@@ -23,9 +24,11 @@ const Body = ({ data }) => {
   
         return (
           <React.Fragment key={key}>
-            <tr
-              onClick={() => { handleClick(key) }}>
-              <SeriesHandler data={{ isTypeMovie }} />
+            <tr onClick={() => { onToggleChildren(key) }}>
+              <SeriesHandler
+                isShownSymbol={ !isTypeMovie }
+                isShownChildren={ isShownChildren }
+              />
               <TitleId data={ item.title_iid } />
               <TitleName data={ item.title_name } />
               <ContentType data={ item.content_type } />
@@ -42,8 +45,9 @@ const Body = ({ data }) => {
                 { isTypeMovie ? 'Single Movie' : 'All Season' }
               </Programmable>
             </tr>
-
-            { !isTypeMovie && <SeasonDetail data={ item?.seasons } /> }
+            { (!isTypeMovie && isShownChildren) && (
+              <SeasonDetail data={ item?.seasons } />
+            )}
           </React.Fragment>
         )
       })}

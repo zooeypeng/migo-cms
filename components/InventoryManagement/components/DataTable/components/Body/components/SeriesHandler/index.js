@@ -1,9 +1,13 @@
 import Td from '/components/InventoryManagement/components/shared/Td'
 
-const SeriesHandler = ({ data }) => (
+const SeriesHandler = ({ isShownSymbol, isShownChildren }) => (
   <Td>
-    <span className="ml-2">
-      { !data.isTypeMovie && '+'}
+    <span className="pl-2">
+      { !isShownSymbol
+          ? ''
+          : isShownChildren
+            ? '-'
+            : '+' }
     </span>
   </Td>
 )
