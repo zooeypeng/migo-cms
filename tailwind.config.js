@@ -6,11 +6,14 @@ module.exports = {
   theme: {
     colors: {
       "black": "#000000",
-      "gray-1": "#B2B2B2",
-      "gray-2": "#DDDDDD",
-      "gray-3": "#D9D9D9",
-      "gray-4": "#494949",
-      "gray-8": "#292929",
+      "gray": {
+        "1": "#B2B2B2",
+        "2": "#DDDDDD",
+        "3": "#D9D9D9",
+        "300": "#C3C3C2",
+        "4": "#494949",
+        "8": "#292929",
+      },
       "green": "#08AA5E",
       "red": "#E31E30",
       "white": "#FFFFFF",

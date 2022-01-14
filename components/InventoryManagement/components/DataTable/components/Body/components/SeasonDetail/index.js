@@ -1,4 +1,5 @@
 import React from 'react'
+import Td from '/components/InventoryManagement/components/shared/Td'
 import SeasonId from './components/SeasonId'
 import TitleName from '../../../../../shared/TitleName'
 import ContentType from '../../../../../shared/ContentType'
@@ -14,7 +15,7 @@ const SeasonDetail = ({ data }) => (
       return (
         <React.Fragment key={`level-e-${key}`}>
           <tr>
-            <td></td>
+            <Td />
             <SeasonId data={ item.season_id } />
             <TitleName data={ item.season_name} />
             <ContentType data="Season" />

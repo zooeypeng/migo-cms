@@ -1,3 +1,4 @@
+import Td from '/components/InventoryManagement/components/shared/Td'
 import EpisodeId from './components/EpisodeId'
 import TitleName from '../../../../../../../shared/TitleName'
 import ContentType from '../../../../../../../shared/ContentType'
@@ -10,7 +11,7 @@ const EpisodeDetail = ({ data }) => (
   <>
     {data?.map(( item, key ) => (
       <tr key={key}>
-        <td></td>
+        <Td />
         <EpisodeId data={ item.episode_id } />
         <TitleName data={ item.episode_name } />
         <ContentType data="Episode" />
