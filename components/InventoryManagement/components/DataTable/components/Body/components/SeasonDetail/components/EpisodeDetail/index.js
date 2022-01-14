@@ -1,3 +1,4 @@
+import Tr from '/components/InventoryManagement/components/shared/Tr'
 import Td from '/components/InventoryManagement/components/shared/Td'
 import EpisodeId from './components/EpisodeId'
 import TitleName from '../../../../../../../shared/TitleName'
@@ -10,7 +11,7 @@ import Programmable from '../../../../../../../shared/Programmable'
 const EpisodeDetail = ({ data }) => (
   <>
     {data?.map(( item, key ) => (
-      <tr key={key}>
+      <Tr key={key}>
         <Td />
         <EpisodeId data={ item.episode_id } />
         <TitleName data={ item.episode_name } />
@@ -18,8 +19,11 @@ const EpisodeDetail = ({ data }) => (
         <SeasonNumber data="--" />
         <Episode count={ `EP${ item.episode_number }` }/>
         <PublishedDate isDate={false} />
-        <Programmable>Per Episode</Programmable>
-      </tr>
+        <Programmable
+          isActivated={ item.activate }
+          description="Per Episode"
+        />
+      </Tr>
     ))}
   </>
 )

@@ -1,11 +1,11 @@
 import Switch from '/components/shared/Switch'
 import Td from '../Td'
 
-const Programmable = ({ children }) => (
+const Programmable = ({ isActivated, description }) => (
   <Td>
     <div  className="flex items-center">
-      <Switch />
-      <span className="ml-2">{ children }</span>
+      <Switch isActivated={ isActivated } />
+      <span className="ml-2">{ description }</span>
     </div>
   </Td>
 )

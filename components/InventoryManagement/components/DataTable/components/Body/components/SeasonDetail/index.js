@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import Tr from '/components/InventoryManagement/components/shared/Tr'
 import Td from '/components/InventoryManagement/components/shared/Td'
 import SeasonId from './components/SeasonId'
 import TitleName from '../../../../../shared/TitleName'
@@ -21,7 +22,7 @@ const SeasonDetail = ({ data }) => {
       {data?.map((item, key) => {
         return (
           <React.Fragment key={`level-3-${key}`}>
-            <tr onClick={() => { onToggleChildren(key) }}>
+            <Tr onClick={() => { onToggleChildren(key) }}>
               <Td />
               <SeasonId
                 data={ item.season_id }
@@ -32,8 +33,11 @@ const SeasonDetail = ({ data }) => {
               <SeasonNumber data={ item.season_number } />
               <Episode count={ item.episode_count } />
               <PublishedDate time={ item.publish_timestamp } />
-              <Programmable>All Episodes</Programmable>
-            </tr>
+              <Programmable
+                isActivated={ item.activate }
+                description="All Episodes"
+              />
+            </Tr>
   
             { isShownChildren && <EpisodeDetail data={ item.episodes } />}
           </React.Fragment>
